@@ -9,7 +9,7 @@ let pets = [{
     tutor: "Heloisa Gabrielle",
     contato: "(81) 99999-9999",
     vacinado: false,
-    serviços: ["banho","tosa"]
+    servicos: ["banho","tosa"]
 }, 
 {
     nome: "Loky",
@@ -20,7 +20,7 @@ let pets = [{
     tutor: "Helena",
     contato: "(81) 90000-9999",
     vacinado: false,
-    serviços: ["banho","tosa"]
+    servicos: ["banho","tosa"]
 },
 {
     nome: "Thor",
@@ -31,26 +31,23 @@ let pets = [{
     tutor: "Lívia Gabrielle",
     contato: "(81) 98888-8888",
     vacinado: false,
-    serviços: ["banho","tosa"]
+    servicos: ["banho","tosa"]
 }
 ];
 
+//adicionar novo cliente
+const adicionarCliente = (nome,tipo,idade,raca,peso,tutor,contato,vacinado,servicos) => {
+    pets.push({nome:nome,tipo:tipo,idade:idade,raca:raca,peso:peso,tutor:tutor,contato:contato,vacinado:vacinado,servicos:servicos});
+}
+
+//Listar todos os pets
 const listarPets = () => {
     for (let pet of pets){
         console.log(`O nome é: ${pet.nome}`);
     }
 }
 
-//listarPets();
-
-/* 
-const vacinarPets = () => {
-    for (let pet of pets){
-        pet.vacinado = "true";
-        console.log(`O pet ${pet.nome} está vacinado`);
-    }
-}*/
-
+//Vacinar um pet específico
 const vacinarPets = (nome) => {
     for (let pet of pets){
         if(pet.nome == nome){
@@ -60,4 +57,54 @@ const vacinarPets = (nome) => {
     }
 }
 
-vacinarPets("Jade");
+//Vacinar todos os pets
+const campanhaVacina = () => {
+    var petsVacinados = 0;
+    for (let pet of pets){
+        if(pet.vacinado == false){
+            pet.vacinado = true;
+            petsVacinados++;
+        }
+    }
+    console.log(`O número de pets vacinados é ${petsVacinados}`);
+}
+
+//Função dar banho no pet
+const darBanhoPet = (nome) => {
+    for(let pet of pets){
+        if(pet.nome == nome){
+            pet.servicos.push("banho");
+            console.log(`O pet ${pet.nome} está de banho tomado!`);
+        }
+    }
+}
+
+//Função cortar unhas do pet
+const cortarUnhasPet = (nome) => {
+    for(let pet of pets){
+        if(pet.nome == nome){
+            pet.servicos.push("Cortar unhas");
+            console.log(`O pet ${pet.nome} está de unhas cortadas!`);
+        }
+    }
+}
+
+//Função tosar pet
+const tosarPet = (nome) => {
+    for(let pet of pets){
+        if(pet.nome == nome){
+            pet.servicos.push("Tosar");
+            console.log(`O pet ${pet.nome} está de corte novo!`);
+        }
+    }
+}
+
+//abaixo chamo as funções que desejo usar
+
+//listarPets();
+//vacinarPets("Jade");
+//campanhaVacina();
+//adicionarCliente("Elsa","Cachorro",5,"Poodle","10","Lúcio","(81)90000-0000",true,"banho");
+darBanhoPet("Jade");
+tosarPet("Jade");
+cortarUnhasPet("Jade");
