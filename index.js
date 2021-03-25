@@ -8,7 +8,7 @@ let pets = [{
     peso: 19,
     tutor: "Heloisa Gabrielle",
     contato: "(81) 99999-9999",
-    vacinado: true,
+    vacinado: false,
     serviços: ["banho","tosa"]
 }, 
 {
@@ -19,7 +19,7 @@ let pets = [{
     peso: 1,
     tutor: "Helena",
     contato: "(81) 90000-9999",
-    vacinado: true,
+    vacinado: false,
     serviços: ["banho","tosa"]
 },
 {
@@ -30,7 +30,7 @@ let pets = [{
     peso: 1,
     tutor: "Lívia Gabrielle",
     contato: "(81) 98888-8888",
-    vacinado: true,
+    vacinado: false,
     serviços: ["banho","tosa"]
 }
 ];
@@ -41,4 +41,23 @@ const listarPets = () => {
     }
 }
 
-listarPets();
+//listarPets();
+
+/* 
+const vacinarPets = () => {
+    for (let pet of pets){
+        pet.vacinado = "true";
+        console.log(`O pet ${pet.nome} está vacinado`);
+    }
+}*/
+
+const vacinarPets = (nome) => {
+    for (let pet of pets){
+        if(pet.nome == nome){
+            pet.vacinado = true;
+            console.log(`O pet ${pet.nome} está vacinado(a)`);
+        }
+    }
+}
+
+vacinarPets("Jade");
