@@ -33,7 +33,7 @@ let pets = [{
     vacinado: false,
     servicos: ["banho","tosa"]
 }
-];
+]
 
 //adicionar novo cliente
 const adicionarCliente = (nome,tipo,idade,raca,peso,tutor,contato,vacinado,servicos) => {
@@ -43,12 +43,29 @@ const adicionarCliente = (nome,tipo,idade,raca,peso,tutor,contato,vacinado,servi
 //Listar todos os pets
 const listarPets = () => {
     for (let pet of pets){
-        console.log(`O nome é: ${pet.nome}`);
+        console.log(pet);
+    }
+}
+
+//Listar tudo sobre um pet
+const listarUmPet = (nome) => {
+    for (let pet of pets){
+        if(pet.nome == nome){
+            console.log(`Nome: ${pet.nome}`);
+            console.log(`Tipo: ${pet.tipo}`);
+            console.log(`Idade: ${pet.idade}`);
+            console.log(`Raca: ${pet.raca}`);
+            console.log(`Peso: ${pet.peso}`);
+            console.log(`Tutor: ${pet.tutor}`);
+            console.log(`Contato: ${pet.contato}`);
+            console.log(`Vacinado: ${pet.vacinado}`);
+            console.log(`Serviços: ${pet.servicos}`);
+        }
     }
 }
 
 //Vacinar um pet específico
-const vacinarPets = (nome) => {
+const vacinarUmPet = (nome) => {
     for (let pet of pets){
         if(pet.nome == nome){
             pet.vacinado = true;
@@ -73,8 +90,9 @@ const campanhaVacina = () => {
 const darBanhoPet = (nome) => {
     for(let pet of pets){
         if(pet.nome == nome){
+            var data = new Date();
             pet.servicos.push("banho");
-            console.log(`O pet ${pet.nome} está de banho tomado!`);
+            console.log(`O pet ${pet.nome} realisou ${pet.servicos} em ${data}`);
         }
     }
 }
@@ -83,7 +101,7 @@ const darBanhoPet = (nome) => {
 const cortarUnhasPet = (nome) => {
     for(let pet of pets){
         if(pet.nome == nome){
-            pet.servicos.push("Cortar unhas");
+            pet.servicos.push("corte unhas");
             console.log(`O pet ${pet.nome} está de unhas cortadas!`);
         }
     }
@@ -93,7 +111,7 @@ const cortarUnhasPet = (nome) => {
 const tosarPet = (nome) => {
     for(let pet of pets){
         if(pet.nome == nome){
-            pet.servicos.push("Tosar");
+            pet.servicos.push("tosa");
             console.log(`O pet ${pet.nome} está de corte novo!`);
         }
     }
@@ -102,9 +120,14 @@ const tosarPet = (nome) => {
 //abaixo chamo as funções que desejo usar
 
 //listarPets();
-//vacinarPets("Jade");
+//listarUmPet("Jade");
+//vacinarUmPet("Jade");
 //campanhaVacina();
-//adicionarCliente("Elsa","Cachorro",5,"Poodle","10","Lúcio","(81)90000-0000",true,"banho");
-darBanhoPet("Jade");
 tosarPet("Jade");
 cortarUnhasPet("Jade");
+darBanhoPet("Jade");
+adicionarCliente("Elsa","Cachorro",5,"Poodle","10","Lúcio","(81)90000-0000",true,"Banho");
+listarUmPet("Elsa");
+//darBanhoPet("Elsa"); //serviço adicionado não está como array precisa ajustar o adicionarCliente()
+
+
