@@ -36,7 +36,7 @@ let pets = [{
 ]
 
 //adicionar novo cliente
-const adicionarCliente = (nome,tipo,idade,raca,peso,tutor,contato,vacinado,servicos) => {
+const adicionarCliente = (nome,tipo,idade,raca,peso,tutor,contato,vacinado,servicos=[]) => {
     pets.push({nome:nome,tipo:tipo,idade:idade,raca:raca,peso:peso,tutor:tutor,contato:contato,vacinado:vacinado,servicos:servicos});
 }
 
@@ -123,11 +123,10 @@ const tosarPet = (nome) => {
 //listarUmPet("Jade");
 //vacinarUmPet("Jade");
 //campanhaVacina();
-tosarPet("Jade");
-cortarUnhasPet("Jade");
-darBanhoPet("Jade");
-adicionarCliente("Elsa","Cachorro",5,"Poodle","10","Lúcio","(81)90000-0000",true,"Banho");
+//tosarPet("Jade");
+//cortarUnhasPet("Jade");
+//darBanhoPet("Jade");
+adicionarCliente("Elsa","Cachorro",5,"Poodle","10","Lúcio","(81)90000-0000",true,["banho","tosa"]);
+darBanhoPet("Elsa"); //serviço adicionado não está como array precisa ajustar o adicionarCliente()
 listarUmPet("Elsa");
-//darBanhoPet("Elsa"); //serviço adicionado não está como array precisa ajustar o adicionarCliente()
-
 
