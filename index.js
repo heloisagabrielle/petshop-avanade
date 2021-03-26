@@ -1,39 +1,7 @@
 const nomePetShop = "PETSHOP AVANADE";
 
-let pets = [{
-    nome: "Jade",
-    tipo: "cachorro",
-    idade: 5,
-    raca: "SRD",
-    peso: 19,
-    tutor: "Heloisa Gabrielle",
-    contato: "(81) 99999-9999",
-    vacinado: false,
-    servicos: ["banho","tosa"]
-}, 
-{
-    nome: "Loky",
-    tipo: "gato",
-    idade: 1,
-    raca: "SRD",
-    peso: 1,
-    tutor: "Helena",
-    contato: "(81) 90000-9999",
-    vacinado: false,
-    servicos: ["banho","tosa"]
-},
-{
-    nome: "Thor",
-    tipo: "gato",
-    idade: 1,
-    raca: "SRD",
-    peso: 1,
-    tutor: "Lívia Gabrielle",
-    contato: "(81) 98888-8888",
-    vacinado: false,
-    servicos: ["banho","tosa"]
-}
-]
+let bancoDados = require("./bancoJson.json");
+pets = bancoDados.pets;
 
 //adicionar novo cliente
 const adicionarCliente = (nome,tipo,idade,raca,peso,tutor,contato,vacinado,servicos=[]) => {
@@ -129,4 +97,3 @@ const tosarPet = (nome) => {
 adicionarCliente("Elsa","Cachorro",5,"Poodle","10","Lúcio","(81)90000-0000",true,["banho","tosa"]);
 darBanhoPet("Elsa"); //serviço adicionado não está como array precisa ajustar o adicionarCliente()
 listarUmPet("Elsa");
-
